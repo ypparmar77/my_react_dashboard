@@ -1,6 +1,6 @@
 
 import React from 'react';
-import './style/Dashboard.css'; // Import the corresponding CSS file for styling
+import './style/Dashboard.css'; 
 
 export default function Dashboard() {
   return (

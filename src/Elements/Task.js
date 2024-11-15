@@ -3,10 +3,10 @@ import { useNavigate, Link } from 'react-router-dom';
 import Navbar from './Navbar'; 
 import Sidenav from './Sidebar';
 import "bootstrap/dist/css/bootstrap.css";
-import "./style/Task.css"
+import "./style/Task.css";
 
 export default function Task() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]); 
   const [searchTerm, setSearchTerm] = useState("");
   const [filterValues, setFilterValues] = useState({
     startDate: '',
@@ -35,8 +35,12 @@ export default function Task() {
   }
 
   useEffect(() => {
-    const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    setTasks(savedTasks);
+    const savedTasks = JSON.parse(localStorage.getItem('tasks'));
+    if (Array.isArray(savedTasks)) {
+      setTasks(savedTasks);
+    } else {
+      setTasks([]);  
+    }
   }, []);
 
   const deleteTask = (id) => {
@@ -45,6 +49,7 @@ export default function Task() {
     localStorage.setItem('tasks', JSON.stringify(updatedTasks));
   };
 
+  // Edit task
   const editTask = (task) => {
     navigate('/Form', { state: { task } });
   };
@@ -57,61 +62,59 @@ export default function Task() {
     let matchesPriority = true;
 
     if (searchTerm) {
-        if (task.taskName.toLowerCase().includes(searchTerm.toLowerCase()) || task.status.toLowerCase().includes(searchTerm.toLowerCase())) {
-            matchesSearchTerm = true;
-        } else {
-            matchesSearchTerm = false;
-        }
-    } else {
+      if (task.taskName.toLowerCase().includes(searchTerm.toLowerCase()) || task.status.toLowerCase().includes(searchTerm.toLowerCase())) {
         matchesSearchTerm = true;
+      } else {
+        matchesSearchTerm = false;
+      }
+    } else {
+      matchesSearchTerm = true;
     }
 
     if (filterValues.startDate) {
-        if (new Date(task.startDate) >= new Date(filterValues.startDate)) {
-            matchesStartDate = true;
-        } else {
-            matchesStartDate = false;
-        }
+      if (new Date(task.startDate) >= new Date(filterValues.startDate)) {
+        matchesStartDate = true;
+      } else {
+        matchesStartDate = false;
+      }
     }
 
     if (filterValues.endDate) {
-        if (new Date(task.endDate) <= new Date(filterValues.endDate)) {
-            matchesEndDate = true;
-        } else {
-            matchesEndDate = false;
-        }
+      if (new Date(task.endDate) <= new Date(filterValues.endDate)) {
+        matchesEndDate = true;
+      } else {
+        matchesEndDate = false;
+      }
     }
 
     if (filterValues.status) {
-        if (task.status.toLowerCase() === filterValues.status.toLowerCase()) {
-            matchesStatus = true;
-        } else {
-            matchesStatus = false;
-        }
+      if (task.status.toLowerCase() === filterValues.status.toLowerCase()) {
+        matchesStatus = true;
+      } else {
+        matchesStatus = false;
+      }
     }
 
     if (filterValues.priority) {
-        if (task.priority.toLowerCase() === filterValues.priority.toLowerCase()) {
-            matchesPriority = true;
-        } else {
-            matchesPriority = false;
-        }
+      if (task.priority.toLowerCase() === filterValues.priority.toLowerCase()) {
+        matchesPriority = true;
+      } else {
+        matchesPriority = false;
+      }
     }
 
     return matchesSearchTerm && matchesStartDate && matchesEndDate && matchesStatus && matchesPriority;
-});
-
+  });
 
   return (
     <div>
       <Navbar setSearchTerm={setSearchTerm} />
       
-       <div style={{ marginLeft: "266px",   transition:"0.5s", marginTop: "105px" }} className='p-3'>
-
+      <div style={{ marginLeft: "266px", transition: "0.5s", marginTop: "105px" }} className='p-3'>
         <button className='btn btn-info' onClick={toggleSidenav}>
-        {isSidenavOpen ? 'Close Filter' : 'Filter' }
+          {isSidenavOpen ? 'Close Filter' : 'Filter'}
         </button>
-    
+
         {isSidenavOpen && <Sidenav setFilterValues={setFilterValues} />}
 
         <table className='table'>
@@ -139,14 +142,20 @@ export default function Task() {
                   <td>{task.status}</td>
                   <td>{task.priority}</td>
                   <td>
-                    <button role="button" className='button-55 btn btn-success' onClick={() => editTask(task)}><i className="bi bi-pencil-square"></i></button>
+                    <button role="button" className='button-55 btn btn-success' onClick={() => editTask(task)}>
+                      <i className="bi bi-pencil-square"></i>
+                    </button>
                   </td>
                   <td>
-                    <button role="button" className='button-55 btn btn-danger' onClick={() => deleteTask(task.id)}><i className="bi bi-trash-fill"></i></button>
+                    <button role="button" className='button-55 btn btn-danger' onClick={() => deleteTask(task.id)}>
+                      <i className="bi bi-trash-fill"></i>
+                    </button>
                   </td>
                   <td>
                     <Link to={`/Task_view/${task.id}`}>
-                      <button role="button" className='button-55 btn btn-info'><i className="bi bi-eye"></i></button>
+                      <button role="button" className='button-55 btn btn-info'>
+                        <i className="bi bi-eye"></i>
+                      </button>
                     </Link>
                   </td>
                 </tr>

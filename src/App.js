@@ -4,12 +4,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Form from './Elements/Routes_work/Form';
 import Task from './Elements/Task';
 import Task_view from './Elements/Routes_work/Task_view';
-import True_sidbar from './Elements/True_sidbar'; // Import True_sidbar
+import True_sidbar from './Elements/True_sidbar'; 
 import Dashboard from './Elements/dashboard';
 import Settings from './Elements/Settings';
 import Projects from './Elements/Projects';
 
-// Optionally, you can create a Home component for the landing page
 
 function App() {
 
@@ -23,7 +22,7 @@ function App() {
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/Settings" element={<Settings />} />
         <Route path="/Projects" element={<Projects />} />
-        <Route path='/Navbar/Task' element={<Task/>}/> 
+        <Route path='/Task' element={<Task/>}/> 
       </Routes>
     </BrowserRouter>
   );

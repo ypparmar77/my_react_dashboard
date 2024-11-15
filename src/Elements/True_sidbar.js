@@ -76,7 +76,7 @@ const True_sidbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/Navbar/Task" className="nav-link">
+                <Link to="/Task" className="nav-link">
                   <i className="bi bi-list-task"></i> Task
                 </Link>
               </li>

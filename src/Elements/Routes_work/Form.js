@@ -17,7 +17,7 @@ export default function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     const task = {
       id: existingTask ? existingTask.id : Date.now(),
       taskName,
@@ -26,28 +26,37 @@ export default function Form() {
       status,
       priority,
     };
-
+  
+    // Get tasks from localStorage, ensuring it's an array
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-
+  
+    // Ensure that tasks is an array before calling .push()
+    if (!Array.isArray(tasks)) {
+      tasks = [];
+    }
+  
     if (existingTask) {
       // Update task if in edit mode
       tasks = tasks.map(t => (t.id === task.id ? task : t));
     } else {
-      // Add a new task
+      // Add a new task if not in edit mode
       tasks.push(task);
     }
-
+  
+    // Save the updated tasks back to localStorage
     localStorage.setItem('tasks', JSON.stringify(tasks));
-
-    // Clear the form fields
+  
+    // Clear the form fields after submitting
     setTaskName('');
     setStartDate('');
     setEndDate('');
     setStatus('');
     setPriority('');
-
-    navigate('/Navbar/Task');
+  
+    // Navigate to Task list page
+    navigate('/Task');
   };
+  
 
   return (
     <form onSubmit={handleSubmit} className='mt-2'>

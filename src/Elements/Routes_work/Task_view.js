@@ -66,7 +66,7 @@ export default function Task_view() {
           </tr>
         </tbody>
       </table>
-      <Link to="/Navbar/Task" role="button" style={{fontSize:"30px"}} className='button-55 btn btn-success'><i className="bi bi-skip-backward"></i></Link>
+      <Link to="/Task" role="button" style={{fontSize:"30px"}} className='button-55 btn btn-success'><i className="bi bi-skip-backward"></i></Link>
     </div>
   );
 }
