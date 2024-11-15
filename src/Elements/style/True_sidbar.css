@@ -1,0 +1,114 @@
+/* Style the sidebar */
+.sid-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    color: #fff;
+    padding-top: 60px;
+  }
+  
+  .sid {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .profile-section {
+    margin-bottom: 30px;
+  }
+  
+  .profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .profile-section h4 {
+    font-size: 18px;
+    color: #fff;
+  }
+  
+  .profile-section p {
+    color: #aaa;
+    font-size: 14px;
+  }
+  
+  /* Navigation Links */
+  .nav-links {
+    margin-top: 30px;
+  }
+  
+  .nav-item {
+    margin-bottom: 20px;
+  }
+  
+  .nav-link {
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .nav-link:hover {
+    background-color: #495057;
+  }
+  
+  .nav-link i {
+    margin-right: 10px;
+  }
+  
+  button.nav-link {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  button.nav-link:hover {
+    background-color: #495057;
+  }
+  
+
+  /* Example CSS for hiding sidebar */
+.sid-container {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Hidden sidebar */
+  .sid-container.hidden {
+    transform: translateX(-100%); /* Move the sidebar off-screen */
+  }
+  
+  .sid-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #343a40;
+    z-index: 999;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Styling for sidebar items */
+  .sid .nav-link {
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 16px;
+  }
+  
+  .sid .nav-link:hover {
+    background-color: #495057;
+  }
+  
+  .profile-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  

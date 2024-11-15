@@ -1,0 +1,58 @@
+/* Projects.css */
+
+.projects-container {
+    margin-top: 100px;
+    padding: 20px;
+  }
+
+  /* Project List */
+  .projects-list {
+    margin-top: 40px;
+  }
+  
+  .list-group-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .list-group-item h5 {
+    font-size: 1.25rem;
+  }
+  
+  .list-group-item p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Project Status Badge */
+  .badge {
+    padding: 5px 10px;
+    font-size: 0.875rem;
+  }
+  
+  .badge.bg-success {
+    background-color: #28a745 !important;
+  }
+  
+  .badge.bg-warning {
+    background-color: #ffc107 !important;
+  }
+  
+  .badge.bg-primary {
+    background-color: #007bff !important;
+  }
+  
+  /* Optional: Responsive Design */
+  @media (max-width: 768px) {
+    .projects-container {
+      padding: 10px;
+    }
+  
+    .card {
+      margin: 10px;
+      padding: 15px;
+    }
+  }
+  

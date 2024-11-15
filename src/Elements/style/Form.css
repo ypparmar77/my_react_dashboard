@@ -1,0 +1,96 @@
+
+  /* Form Container */
+  form {
+    width: 100%;
+    max-width: 1050px;
+    position: absolute;
+    left: 58%;
+    top: 55%;
+    transform: translate(-50%,-50%);
+    padding: 25px;
+    border-radius: 10px;
+    background-image: linear-gradient(#0dcdea73, #0d71ea7d);
+}
+  
+  form label {
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 1px;
+    display: block;
+    font-size: 0.9rem;
+  }
+  
+  form input[type="text"],
+  form input[type="datetime-local"],
+  form select {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  form input[type="text"]:focus,
+  form input[type="datetime-local"]:focus,
+  form select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Select Container */
+  .select_container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .select_container select {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .select_container select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  form input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #0056b3;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: #0057b3;
+  }
+  
+  form input[type="submit"]:active {
+    background-color: #004080;
+  }
+  
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .select_container {
+      flex-direction: column;
+    }
+
+    .select_container select {
+      width: 100%;
+    }
+  }
+  
