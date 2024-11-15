@@ -50,11 +50,11 @@ export default function Task_view() {
           </tr>
           <tr>
             <td><b>Start Date & Time :</b></td>
-            <td>{Date_Time(task.startDate)}</td>
+            <td className='text-danger'>{Date_Time(task.startDate)}</td>
           </tr>
           <tr>
             <td><b>End Date & Time :</b></td>
-            <td>{Date_Time(task.endDate)}</td> 
+            <td className='text-danger'>{Date_Time(task.endDate)}</td> 
           </tr>
           <tr>
             <td><b>Status :</b></td>

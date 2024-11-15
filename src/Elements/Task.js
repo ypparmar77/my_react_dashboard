@@ -73,7 +73,7 @@ export default function Task() {
 
     if (filterValues.startDate) {
       if (new Date(task.startDate) >= new Date(filterValues.startDate)) {
-        matchesStartDate = true;
+        matchesStartDate = true; 
       } else {
         matchesStartDate = false;
       }
@@ -137,11 +137,11 @@ export default function Task() {
                 <tr key={task.id}>
                   <td>{index + 1}</td>
                   <td>{task.taskName}</td>
-                  <td>{Date_Time(task.startDate)}</td>
-                  <td>{Date_Time(task.endDate)}</td>
+                  <td className='text-danger'>{Date_Time(task.startDate)}</td>
+                  <td className='text-danger'>{Date_Time(task.endDate)}</td>
                   <td>{task.status}</td>
                   <td>{task.priority}</td>
-                  <td>
+                  <td>  
                     <button role="button" className='button-55 btn btn-success' onClick={() => editTask(task)}>
                       <i className="bi bi-pencil-square"></i>
                     </button>

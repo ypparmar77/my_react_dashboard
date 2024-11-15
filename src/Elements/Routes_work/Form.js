@@ -6,7 +6,6 @@ export default function Form() {
   const navigate = useNavigate();
   const location = useLocation();
   
-  // If editing, get the existing task from location state
   const existingTask = location.state?.task;
 
   const [taskName, setTaskName] = useState(existingTask?.taskName || '');
@@ -27,33 +26,26 @@ export default function Form() {
       priority,
     };
   
-    // Get tasks from localStorage, ensuring it's an array
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   
-    // Ensure that tasks is an array before calling .push()
     if (!Array.isArray(tasks)) {
       tasks = [];
     }
   
     if (existingTask) {
-      // Update task if in edit mode
       tasks = tasks.map(t => (t.id === task.id ? task : t));
     } else {
-      // Add a new task if not in edit mode
       tasks.push(task);
     }
   
-    // Save the updated tasks back to localStorage
     localStorage.setItem('tasks', JSON.stringify(tasks));
   
-    // Clear the form fields after submitting
     setTaskName('');
     setStartDate('');
     setEndDate('');
     setStatus('');
     setPriority('');
   
-    // Navigate to Task list page
     navigate('/Task');
   };
   
@@ -94,7 +86,7 @@ export default function Form() {
           onChange={(e) => setStatus(e.target.value)}
           required >
           <option value="">Select Status</option>
-          <option value="Started">Started</option> {/* Added "Started" here */}
+          <option value="Started">Started</option> 
           <option value="In Progress">In Progress</option>
           <option value="Completed">Completed</option>
         </select>
