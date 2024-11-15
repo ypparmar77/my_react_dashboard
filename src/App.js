@@ -9,9 +9,7 @@ import Dashboard from './Elements/dashboard';
 import Settings from './Elements/Settings';
 import Projects from './Elements/Projects';
 
-
 function App() {
-
   return (
     <BrowserRouter>
       <Navbar />

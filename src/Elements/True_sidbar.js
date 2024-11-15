@@ -15,10 +15,8 @@ const True_sidbar = () => {
     <div>
       <div className="sid-container bg-dark">
         <div className="sid">
-          {/* Profile Section with Dropdown */}
           <div className="profile-section text-center">
             <div className="btn-group">
-              {/* Profile Image with Dropdown */}
               <button
                 type="button"
                 className="btn btn-link p-0"
@@ -31,7 +29,7 @@ const True_sidbar = () => {
                   className="profile-img rounded-circle"
                 />
               </button>
-              {/* Dropdown Menu */}
+
               <ul className="dropdown-menu dropdown-menu-end">
                 <li>
                   <Link to="/Profile" className="dropdown-item">
@@ -57,7 +55,7 @@ const True_sidbar = () => {
             <p>Admin</p>
           </div>
 
-          {/* Sidebar Navigation Links */}
+
           <div className="nav-links">
             <ul className="nav flex-column">
               <li className="nav-item">

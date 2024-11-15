@@ -5,8 +5,7 @@ export default function Sidenav({ setFilterValues }) {
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
     setFilterValues(prevState => ({
-      ...prevState,
-      [name]: value
+      ...prevState,[name]: value
     }));
   };
 
@@ -43,11 +42,8 @@ export default function Sidenav({ setFilterValues }) {
           </select>
         </div>
         </div>
-        
-
        </div>
       </form>
-
     </div>
   );
 }
