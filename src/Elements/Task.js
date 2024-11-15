@@ -162,7 +162,7 @@ export default function Task() {
               ))
             ) : (
               <tr>
-                <td colSpan="9" className="text-center">No tasks found.</td>
+                <td colSpan="9" className="text-center">No tasks.</td>
               </tr>
             )}
           </tbody>
